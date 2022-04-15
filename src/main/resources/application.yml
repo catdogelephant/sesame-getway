@@ -1,3 +1,20 @@
 server:
   port: 8002
+spring:
+  application:
+    name: sesame-getway
 
+#Eureka
+eureka:
+  instance:
+    hostname: localhost #设置该服务注册中心
+  client:
+    register-with-eureka: false #设置为false就是禁止把自己注册到注册中心
+    fetch-registry: false #false表示不去检索其他的服务（即自己是注册中心），因为注册中心本身的之策就是维护服务实例
+    service-url:
+      #监控页面（与eureka服务中心交互的地址）
+      #defaultZone 重写默认的监控地址（不用默认的，用自己的），模拟默认地址格式
+      # 单机 defaltZone：http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群（关联）：
+      defaultZone: http://localhost:8002/eureka
+      # defaultZone: http://eureka7002/eureka/,http://eureka7003:7003/eureka/
