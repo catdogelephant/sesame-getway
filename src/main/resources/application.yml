@@ -1,3 +1,11 @@
 server:
   port: 8002
-
+spring:
+  application:
+    name: sesame-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: service-routes1
+          predicates: Path=/api/**
+          uri: lb://shaobing
