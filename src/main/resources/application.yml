@@ -9,6 +9,7 @@ spring:
         - id: service-routes1
           predicates: Path=/api/**
           uri: https://www.baidu.com
+          filters: StripPrefix=1
         - id: service-routes2
           predicates: Path=/user/**
           uri: http://localhost:8080
