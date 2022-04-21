@@ -8,4 +8,7 @@ spring:
       routes:
         - id: service-routes1
           predicates: Path=/api/**
-          uri: lb://shaobing
+          uri: https://www.baidu.com
+        - id: service-routes2
+          predicates: Path=/user/**
+          uri: http://localhost:8080
