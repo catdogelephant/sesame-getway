@@ -2,4 +2,20 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.17.128:8848
+        server-addr: 192.168.17.128:8848 # 注册中心地址
+        namespace: dev
+      config:
+        server-addr: 192.168.17.128:8848 # 配置中心地址
+        file-extension: yaml # 指定配置文件的格式
+        # 配置中心 命名空间，默认public
+        # 目前选项：public、test、dev
+        namespace: dev
+        # 共享的配置文件，[] 越小，优先级越高，必须冲0开始
+#        shared-configs[0]:
+#          data-id: base-datasource.yaml
+#          base-dev-datasource: DEFAULT_GROUP
+#          properties: true
+#        shared-configs[1]:
+#          data-id: base.yaml
+#          base-dev-datasource: DEFAULT_GROUP
+#          properties: true

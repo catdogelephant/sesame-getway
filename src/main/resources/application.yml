@@ -1,18 +1,25 @@
-server:
-  port: 8002
 spring:
   application:
-    name: sesame-gateway
-  cloud:
-    gateway:
-      routes:
-        - id: routes-api
-          predicates: Path=/api/**
-          uri: https://www.baidu.com
-          filters: StripPrefix=1
-        - id: routes-user
-          predicates: Path=/user/**
-          uri: http://localhost:8020
-        - id: routes-commodity
-          predicates: Path=/commodity/**
-          uri: http://localhost:8021
+    # 配置中心文件命名规则，这个名称涉及到远程配置文件的名称
+    # ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
+    name: sesame-gateway-dev
+  profiles:
+    active: dev
+#server:
+#  port: 8002
+#spring:
+#  application:
+#    name: sesame-gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: routes-api
+#          predicates: Path=/api/**
+#          uri: https://www.baidu.com
+#          filters: StripPrefix=1
+#        - id: routes-user
+#          predicates: Path=/user/**
+#          uri: http://localhost:8020
+#        - id: routes-commodity
+#          predicates: Path=/commodity/**
+#          uri: http://localhost:8021
